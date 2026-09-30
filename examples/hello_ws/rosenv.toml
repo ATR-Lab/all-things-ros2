@@ -1,0 +1,23 @@
+# ROSEnv manifest for this workspace (https://github.com/MarcoDotIO/rosenv).
+# `rosenv lock` writes rosenv.lock next to this file; commit both.
+
+[project]
+name = "hello_ws"
+ros = "jazzy"
+variant = "ros-base"
+# ROSEnv does not read package.xml; list the binary packages the workspace needs.
+# Short ROS names resolve to Debian packages, e.g. std_msgs -> ros-jazzy-std-msgs.
+dependencies = ["rclpy", "std_msgs", "launch_ros"]
+
+[dependency-groups]
+# Included by default; `--no-dev` leaves it out.
+dev = ["apt:python3-pytest"]
+
+[environment]
+# Private Docker bridge network. Use "host" to reach robots on the LAN.
+network = "bridge"
+
+[tasks]
+talker = ["ros2", "run", "hello_atr", "talker"]
+listener = ["ros2", "run", "hello_atr", "listener"]
+demo = ["ros2", "launch", "hello_atr", "hello_atr.launch.py"]

@@ -1,0 +1,36 @@
+# colcon workspace outputs (any workspace in this repo, e.g. examples/hello_ws)
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# ROSEnv local files. In your own projects, commit rosenv.toml and rosenv.lock;
+# the example ships no lock because a lock is tied to one CPU architecture.
+.rosenv.edit.lock
+.rosenv-version
+examples/hello_ws/rosenv.lock
+
+# ROS outputs you may create while following the docs
+frames_*.pdf
+frames_*.gv
+*.mcap
+*.db3
+rosbag2_*/
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Node (markdownlint via npx)
+node_modules/
