@@ -1,6 +1,6 @@
 # AGENTS.md: all-things-ros2
 
-This repository is the ROS 2 handbook of the Advanced Telerobotics Research Lab (Department of Computer Science, Kent State University): what ROS 2 is, its distributions from Foxy to Lyrical, how to install it natively or with ROSEnv, a command cheatsheet, useful packages, debugging practice, how each lab device connects to ROS 2, and a small tested example workspace. It serves two readers: a new student who has never used ROS, and a coding agent that needs exact, verified commands. It is **not** the lab's onboarding guide (that is `getting-started-atr-lab`), not its coding standard (`dev-guidelines`), not a place for robot code (each robot has its own repository), and not a substitute for the official ROS 2 documentation, which it links everywhere.
+This repository is the ROS 2 handbook of the Advanced Telerobotics Research Laboratory (Department of Computer Science, Kent State University): what ROS 2 is, its distributions from Foxy to Lyrical, how to install it natively or with ROSEnv, a command cheatsheet, useful packages, debugging practice, how each lab device connects to ROS 2, and a small tested example workspace. It serves two readers: a new student who has never used ROS, and a coding agent that needs exact, verified commands. It is **not** the lab's onboarding guide (that is `getting-started-atr-lab`), not its coding standard (`dev-guidelines`), not a place for robot code (each robot has its own repository), and not a substitute for the official ROS 2 documentation, which it links everywhere.
 
 ## Repo map
 
@@ -9,7 +9,7 @@ This repository is the ROS 2 handbook of the Advanced Telerobotics Research Lab 
 | `README.md` | Landing page: header, card grid, distro quick answer, five-minute quick start (native and ROSEnv), repo map, contributing, license, shared footer |
 | `AGENTS.md` | This file: map, sources, rules, checks, open items |
 | `CLAUDE.md` | One line, `@AGENTS.md`, so Claude Code loads this file |
-| `LICENSE` | MIT, 2026, Advanced Telerobotics Research Lab contributors |
+| `LICENSE` | MIT, 2026, Advanced Telerobotics Research Laboratory contributors |
 | `.gitignore` | Colcon outputs (`build/`, `install/`, `log/`), Python caches, ROSEnv local files, bags, editor and OS files |
 | `.markdownlint.jsonc` | Shared markdownlint rules for all lab docs repos |
 | `.github/workflows/docs.yml` | CI: markdownlint and lychee link check on every push and pull request |
@@ -123,8 +123,9 @@ Placeholders the lab must fill. Agents must not fill these by guessing.
 | `docs/08-lab-robots.md` | `[lab to confirm the mower's current distros]`: `robo_mower_ws` docs pair a Humble PC with a Jazzy Raspberry Pi | Mower project members |
 | `docs/08-lab-robots.md` | `[confirm the distro on the lab's X3 image]` | Whoever maintains the X3 |
 | `docs/08-lab-robots.md` | `[confirm which Yahboom models the lab has]`: the brand fact base says "a Yahboom ROS 2 robot"; the lab repo is for the R2L, the handbook covers the ROSMASTER X3 as assigned | Lab manager |
+| `docs/08-lab-robots.md` | `[owner and dates for the Lyrical SDK forks]` | Director |
 
-Decisions for the lab (not placeholders): adopt Jazzy as the default distro for new work in 2026-2027 (as recommended in `docs/02-distributions.md`), and plan the Humble-to-Jazzy migration of `go2_ws` and Booster K1 work before Humble's end of life in May 2027.
+Decided (Nov. 2026, not placeholders): the lab manages ROS 2 with ROSEnv and uses the distribution each robot's SDK was written for; Jazzy stays the recommendation when nothing pins a distro. The lab plans to fork the Go2 and Booster K1 SDKs to support Lyrical before Humble's end of life in May 2027. The lab's ROSMASTER X3 runs a Jetson Nano.
 
 ## Related repos
 

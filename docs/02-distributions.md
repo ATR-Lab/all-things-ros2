@@ -62,11 +62,13 @@ flowchart TD
   linkStyle default color:#1B2533
 ```
 
+**The lab rule** (decided Nov. 2026): manage ROS 2 with [ROSEnv](04-install-rosenv.md), which runs several distributions side by side on one machine, and use the distribution the robot's SDK was written for. The list below covers everything else.
+
 **Our recommendation for fall 2026:**
 
 1. **New projects: Jazzy on Ubuntu 24.04.** It is an LTS supported until May 2029, it has the widest set of released packages, and it is the Tier 1 distro for the hardware the lab is adding: NVIDIA JetPack 7 on the Jetson AGX Thor is based on Ubuntu 24.04, and Ubuntu 24.04 is the first LTS that supports the Raspberry Pi 5 ([lab robots](08-lab-robots.md)).
 2. **Choose Lyrical on Ubuntu 26.04** when every package you need has a Lyrical release and you want the longest runway (May 2031). Check first: four months after release, some drivers and tools still had no Lyrical binaries, and several vendor stacks (NVIDIA Isaac Sim, micro-ROS setup tools) did not list Lyrical yet ([packages and nodes](06-packages-and-nodes.md#availability-gaps-on-lyrical)). NVIDIA Isaac ROS 5.0 is the exception: it moved to Lyrical in September 2026.
-3. **Use Humble only when something pins it**, such as a robot SDK, a vendor image or a community driver that targets it (today the Unitree Go2 community SDK is tested on Humble and the Booster K1 SDK is built for Ubuntu 22.04). Humble ends in May 2027, so treat every Humble project as one that must migrate soon.
+3. **Use Humble only when something pins it**, such as a robot SDK, a vendor image or a community driver that targets it (today the Unitree Go2 community SDK is tested on Humble and the Booster K1 SDK is built for Ubuntu 22.04). Humble ends in May 2027, so treat every Humble project as one that must migrate soon; the lab plans to fork the Go2 and K1 SDKs for Lyrical ([lab robots](08-lab-robots.md#moving-off-humble)).
 4. **Do not start new work on Kilted.** It ends in December 2026 at the latest.
 5. **Use Rolling only to develop ROS 2 itself** or to test against the next release. It can change under you.
 6. **Run end-of-life distros (Foxy, Galactic, Iron) only in Docker**, only to run existing code, and plan a port. [Install natively](03-install-native.md#end-of-life-distributions-iron-galactic-foxy) explains the options.
@@ -136,4 +138,4 @@ Known changes that catch lab code:
 - [Lab robots and their distros](08-lab-robots.md)
 - Official: [ROS 2 distributions](https://docs.ros.org/en/lyrical/Releases.html), [REP 2000](https://reps.openrobotics.org/rep-2000/), [end-of-life distributions](https://docs.ros.org/en/lyrical/Releases/End-of-Life.html)
 
-<sub>Last reviewed: Sept. 30, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/02-distributions.md)</sub>
+<sub>Last reviewed: Nov. 4, 2026 · Sources checked Sept. 30, 2026 · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/02-distributions.md)</sub>

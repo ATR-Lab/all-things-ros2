@@ -18,7 +18,7 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Advanced Telerobotics Research Lab contributors',
+    maintainer='Advanced Telerobotics Research Laboratory contributors',
     maintainer_email='atrlab.kent@gmail.com',
     description='A small ROS 2 publisher and subscriber for learning.',
     license='MIT',

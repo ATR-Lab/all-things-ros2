@@ -28,6 +28,10 @@ Each device in the lab reaches ROS 2 differently: some have an official vendor d
 | Raspberry Pi 5 | A computer: native on 64-bit Ubuntu, Docker on Raspberry Pi OS | Jazzy (Ubuntu 24.04) | [robo_mower_ws](https://github.com/ATR-Lab/robo_mower_ws) | [raspberry-pi-5](https://github.com/ATR-Lab/getting-started-atr-lab/blob/master/hardware/raspberry-pi-5.md) |
 | Yahboom ROSMASTER X3 | Vendor images and Docker (Foxy on Nano and Pi 5; Orin images on JetPack 6.2) | Vendor's image; port to Humble or Jazzy for new work | [yahboom_r2l_ros2](https://github.com/ATR-Lab/yahboom_r2l_ros2) (for the R2L model) | [rosmaster-x3](https://github.com/ATR-Lab/getting-started-atr-lab/blob/master/hardware/rosmaster-x3.md) |
 
+### Moving off Humble
+
+Humble reaches end of life in May 2027, and the Go2 and Booster K1 work depends on it. The lab plans to fork the SDKs these robots need and add ROS 2 Lyrical support. Who leads it and when: `[owner and dates for the Lyrical SDK forks]`.
+
 > [!WARNING]
 > These are real machines that move fast and can hurt people or break. Before running any ROS 2 code on a robot, follow the lab's robot safety rules (`[lab robot safety page]`), clear the area, start at low speed and keep the emergency stop or remote in reach. Never test new motion code on a robot for the first time without someone watching it.
 
@@ -144,6 +148,8 @@ A mecanum-wheel (omnidirectional) educational robot car with a lidar, depth came
 - Tutorials and code: the [ROSMASTER X3 study page](https://www.yahboom.net/study/ROSMASTER-X3) and the [YahboomTechnology/ROSMASTERX3](https://github.com/YahboomTechnology/ROSMASTERX3) repository (PDF tutorials; no license file).
 - In those tutorials, ROS 2 on the Jetson Nano and Raspberry Pi 5 runs inside Yahboom's **Foxy** Docker image (`yahboomtechnology/ros-foxy`), and the Orin images are built on JetPack 6.2 (Ubuntu 22.04) without Docker. We did not find an explicit statement of the ROS 2 distro on the Orin images: `[confirm the distro on the lab's X3 image]`.
 
+**In our lab:** the X3 has a Jetson Nano controller, so it runs Yahboom's Foxy Docker image. NVIDIA's last release for the original Jetson Nano is JetPack 4.6.x on Ubuntu 18.04 ([Jetson notes](03-install-native.md#nvidia-jetson)); whether a newer Ubuntu can run on it is still being researched.
+
 **Distro:** keep Yahboom's image to run the vendor demos. Foxy reached end of life in June 2023 ([distributions](02-distributions.md)), so write new lab code for Humble or Jazzy and port the drivers you need.
 
 **Lab repo:** [ATR-Lab/yahboom_r2l_ros2](https://github.com/ATR-Lab/yahboom_r2l_ros2) is a "ROS2 Humble port of the Yahboom R2L robot platform, migrated from ROS1 Noetic", with bringup, control, description, messages and a multi-robot racing UI; its README supports Foxy (Ubuntu 20.04) or Humble (Ubuntu 22.04). It is for the Yahboom **R2L**, a different model from the ROSMASTER X3: `[confirm which Yahboom models the lab has]`.
@@ -156,4 +162,4 @@ A mecanum-wheel (omnidirectional) educational robot car with a lidar, depth came
 - [Debugging](07-debugging.md): networking to a robot
 - Lab: [getting-started-atr-lab hardware pages](https://github.com/ATR-Lab/getting-started-atr-lab), [dev-guidelines: ROS 2 packages](https://github.com/ATR-Lab/dev-guidelines/blob/master/docs/ros2-packages.md)
 
-<sub>Last reviewed: Sept. 30, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/08-lab-robots.md)</sub>
+<sub>Last reviewed: Nov. 4, 2026 · Sources checked Sept. 30, 2026 · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/08-lab-robots.md)</sub>
