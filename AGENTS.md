@@ -112,7 +112,6 @@ Placeholders the lab must fill. Agents must not fill these by guessing.
 | `docs/01-what-is-ros2.md`, `docs/04-install-rosenv.md`, `docs/07-debugging.md` | `[lab domain ID assignments]` (a list of which robot or group uses which `ROS_DOMAIN_ID`) | Lab manager |
 | `docs/03-install-native.md` | `[your domain ID]` (in a `.bashrc` example) | Each member, from the domain ID list |
 | `docs/05-cheatsheet.md` | `[robot domain ID]` (in an example) | Each member, from the domain ID list |
-| `docs/03-install-native.md`, `docs/09-resources.md` | `[lab manager name]` | Director or lab manager |
 | `docs/03-install-native.md` | `[lab remote-access instructions]` (SSH to lab Ubuntu machines) | Lab manager |
 | `docs/06-packages-and-nodes.md`, `docs/08-lab-robots.md` | `[lab robot safety page]` | Director or lab manager (likely a page in getting-started-atr-lab) |
 | `docs/07-debugging.md` | `[lab shared storage location]` (for large bags) | Lab manager |

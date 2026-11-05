@@ -31,7 +31,7 @@ The traditional install puts ROS 2 in `/opt/ros/<distro>` from the official apt 
   | Humble (and Iron, end of life) | 22.04 | `jammy` |
   | Galactic, Foxy (end of life) | 20.04 | `focal` |
 
-- [ ] Have `sudo` rights and an internet connection. On a lab machine, ask `[lab manager name]` before installing system packages.
+- [ ] Have `sudo` rights and an internet connection. On a lab machine, ask the lab manager (Marcus Arnett, <marnett5@kent.edu>) before installing system packages.
 - [ ] Check what you have: `lsb_release -a` prints your Ubuntu version.
 
 > [!NOTE]
@@ -252,4 +252,4 @@ Also delete the `source /opt/ros/<distro>/setup.bash` line from `~/.bashrc`. You
 - Lab: [Docker in the lab tech stack](https://github.com/ATR-Lab/getting-started-atr-lab/blob/master/tech-stack/docker.md) and [the full tech stack](https://github.com/ATR-Lab/getting-started-atr-lab/blob/master/tech-stack/README.md)
 - Official: [installation troubleshooting](https://docs.ros.org/en/lyrical/Get-Started/Installation/Installation-Troubleshooting.html)
 
-<sub>Last reviewed: Sept. 30, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/03-install-native.md)</sub>
+<sub>Last reviewed: Nov. 5, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/03-install-native.md)</sub>

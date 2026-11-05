@@ -75,7 +75,7 @@ The big frameworks keep their own docs; pick the page for your distro.
 
 - **Official ROS 2 tutorials** ([Jazzy](https://docs.ros.org/en/jazzy/Tutorials.html)). Start here. Work through "Beginner: CLI tools" and "Beginner: client libraries" in order; they use turtlesim and need only a laptop.
 - **ROS-Industrial training** ([industrial-training-master.readthedocs.io](https://industrial-training-master.readthedocs.io/en/humble/)). A free, structured course with ROS 2 sessions on workspaces, nodes, URDF, tf and MoveIt; the current version is written for Humble, so adjust package names for newer distros.
-- **Francisco Martín Rico, *A Concise Introduction to Robot Programming with ROS 2*, 2nd edition** (Chapman & Hall/CRC, 2025; [publisher page](https://www.routledge.com/A-Concise-Introduction-to-Robot-Programming-with-ROS-2/Rico/p/book/9781032851488), [code](https://github.com/fmrico/book_ros2)). A textbook written by a Nav2 contributor that covers the computation graph, a simulated robot, behavior trees and Nav2. Ask `[lab manager name]` whether the lab or the library has a copy.
+- **Francisco Martín Rico, *A Concise Introduction to Robot Programming with ROS 2*, 2nd edition** (Chapman & Hall/CRC, 2025; [publisher page](https://www.routledge.com/A-Concise-Introduction-to-Robot-Programming-with-ROS-2/Rico/p/book/9781032851488), [code](https://github.com/fmrico/book_ros2)). A textbook written by a Nav2 contributor that covers the computation graph, a simulated robot, behavior trees and Nav2. Ask the lab manager (Marcus Arnett, <marnett5@kent.edu>) whether the lab or the library has a copy.
 - **Stack tutorials**: [Nav2](https://docs.nav2.org/jazzy/tutorials/index.html), [MoveIt 2](https://moveit.picknik.ai/main/doc/tutorials/tutorials.html) and [Gazebo](https://gazebosim.org/docs/latest/tutorials/), each maintained by the project.
 
 > [!TIP]
@@ -102,4 +102,4 @@ Public ATR-Lab repositories that use or document ROS 2:
 - [Lab robots](08-lab-robots.md)
 - Lab: [about the lab](https://github.com/ATR-Lab/about)
 
-<sub>Last reviewed: Sept. 30, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/09-resources.md)</sub>
+<sub>Last reviewed: Nov. 5, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/09-resources.md)</sub>
