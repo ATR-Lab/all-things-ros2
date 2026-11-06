@@ -1,0 +1,4 @@
+# Parameters for the talker node. The top-level key is the node name.
+talker:
+  ros__parameters:
+    publish_rate_hz: 2.0
