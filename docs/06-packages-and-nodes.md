@@ -224,7 +224,7 @@ Gazebo Classic (Gazebo 11) reached end of life in January 2025; do not start new
 
 ### NVIDIA Isaac Sim
 
-A GPU-accelerated simulator with a built-in ROS 2 bridge. Its current docs (Isaac Sim 6.1) recommend **Jazzy on Ubuntu 24.04** and also support Humble on Ubuntu 22.04, with experimental support for loading any natively installed distro ([Isaac Sim ROS installation](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_ros.html)). Check NVIDIA's [system requirements](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html) before you install. Lab page: [Isaac Sim in the tech stack](https://github.com/ATR-Lab/getting-started-atr-lab/blob/master/tech-stack/isaac-sim.md).
+A GPU-accelerated simulator with a built-in ROS 2 bridge. Its current docs (Isaac Sim 6.2) recommend **Jazzy on Ubuntu 24.04** and also test Humble on Ubuntu 22.04; other natively installed distros on Ubuntu 22.04 or 24.04 are experimental ([Isaac Sim ROS installation](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/install_ros.html)). Check NVIDIA's [system requirements](https://docs.isaacsim.omniverse.nvidia.com/latest/installation/requirements.html) before you install. Lab page: [Isaac Sim in the tech stack](https://github.com/ATR-Lab/getting-started-atr-lab/blob/master/tech-stack/isaac-sim.md).
 
 ## Web and remote access
 
@@ -260,4 +260,4 @@ Lyrical is four months old. On Sept. 30, 2026 these packages had a Lyrical entry
 - [External resources](09-resources.md)
 - Search every released package: [ROS Index](https://index.ros.org/)
 
-<sub>Last reviewed: Sept. 30, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/06-packages-and-nodes.md)</sub>
+<sub>Last reviewed: Nov. 5, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/06-packages-and-nodes.md)</sub>
