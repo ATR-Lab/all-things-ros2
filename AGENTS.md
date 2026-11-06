@@ -13,6 +13,7 @@ This repository is the ROS 2 handbook of the Advanced Telerobotics Research Labo
 | `.gitignore` | Colcon outputs (`build/`, `install/`, `log/`), Python caches, ROSEnv local files, bags, editor and OS files |
 | `.markdownlint.jsonc` | Shared markdownlint rules for all lab docs repos |
 | `.github/workflows/docs.yml` | CI: markdownlint and lychee link check on every push and pull request |
+| `.github/workflows/version-check.yml` | Weekly (Mondays): Claude checks the software facts on these pages against current sources and opens a pull request on `automation/version-updates`; review its sources before merging. Logic in `ATR-Lab/.github` (`tools/docs-version-updater/`) |
 | `.github/assets/header.png`, `social-preview.png` | Banner and social preview (do not regenerate) |
 | `.github/assets/icons/` | The nine card icons used in `README.md` (copied from the shared lab icon set) |
 | `docs/README.md` | Index of the handbook pages |
