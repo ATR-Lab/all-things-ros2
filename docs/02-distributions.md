@@ -28,7 +28,7 @@ Status is as of **Sept. 30, 2026**. "Tier 1" means the ROS 2 project builds, tes
 | **Foxy Fitzroy** (`foxy`) | June 5, 2020 | June 20, 2023 | Yes (three-year window) | Ubuntu 20.04 (amd64, arm64); macOS Mojave 10.14 and Windows 10 (amd64; binary archives) | End of life |
 | **Rolling Ridley** (`rolling`) | June 2020, continuous | None | Not applicable | Ubuntu 26.04 today; moves as new platforms are chosen | Development distribution; can break in place |
 
-Sources: release and end-of-life dates from the [ROS 2 distributions page](https://docs.ros.org/en/lyrical/Releases.html); platforms for Foxy through Kilted from [REP 2000](https://reps.openrobotics.org/rep-2000/); Lyrical platforms from the [Lyrical supported platforms page](https://docs.ros.org/en/lyrical/Releases/lyrical/supported-platforms.html) (REP 2000 had not added Lyrical when we checked); Rolling's platform from its [Ubuntu install page](https://docs.ros.org/en/rolling/Get-Started/Installation/Ubuntu-Install-Debs.html); Foxy's three-year LTS from the [Open Robotics release post](https://www.openrobotics.org/blog/2020/6/5/ros-2-foxy-fitzroy-release).
+Sources: release and end-of-life dates from the [ROS 2 distributions page](https://docs.ros.org/en/lyrical/Releases.html); platforms for Foxy through Kilted from [REP 2000](https://reps.openrobotics.org/rep-2000/); Lyrical platforms from the [Lyrical supported platforms page](https://docs.ros.org/en/lyrical/Releases/lyrical/supported-platforms.html) (REP 2000 covers releases up to Kilted; from Lyrical on, platforms are listed in each release's documentation); Rolling's platform from its [Ubuntu install page](https://docs.ros.org/en/rolling/Get-Started/Installation/Ubuntu-Install-Debs.html); Foxy's three-year LTS from the [Open Robotics release post](https://www.openrobotics.org/blog/2020/6/5/ros-2-foxy-fitzroy-release).
 
 > [!NOTE]
 > Two official sources disagree on Kilted: the distributions page says it ends in **December 2026**, while REP 2000's heading says **November 2026**. Plan for November. The next distribution, Makoa Mata-mata, is planned for May 2027 with an end of life in December 2028, according to the same distributions page.
@@ -138,4 +138,4 @@ Known changes that catch lab code:
 - [Lab robots and their distros](08-lab-robots.md)
 - Official: [ROS 2 distributions](https://docs.ros.org/en/lyrical/Releases.html), [REP 2000](https://reps.openrobotics.org/rep-2000/), [end-of-life distributions](https://docs.ros.org/en/lyrical/Releases/End-of-Life.html)
 
-<sub>Last reviewed: Nov. 4, 2026 · Sources checked Sept. 30, 2026 · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/02-distributions.md)</sub>
+<sub>Last reviewed: Nov. 9, 2026 · Sources checked Sept. 30, 2026 · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/02-distributions.md)</sub>

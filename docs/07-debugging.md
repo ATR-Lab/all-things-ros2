@@ -146,7 +146,7 @@ Show compiler output as it happens with `colcon build --event-handlers console_d
 | Check | Command | What to look for |
 |---|---|---|
 | Actual publish rate | `ros2 topic hz /<topic>` | Lower than expected means the publisher or network is the bottleneck |
-| Bandwidth | `ros2 topic bw /<topic>` | Raw camera images and point clouds can use tens of MB/s; Wi-Fi will not keep up |
+| Bandwidth | `ros2 topic bw /<topic>` (Lyrical: several topics, such as `ros2 topic bw /tf /joint_states`, or `--all`) | Raw camera images and point clouds can use tens of MB/s; Wi-Fi will not keep up |
 | Message age | `ros2 topic delay /<topic>` | Growing delay means someone is falling behind (needs a header stamp) |
 | CPU and memory | `top` or `htop` | One process at 100% of a core is a single-threaded bottleneck |
 | Callback blocking | Add timing logs, or run with `--log-level debug` | A slow callback in a single-threaded executor delays every other callback in that node |
@@ -231,4 +231,4 @@ Where to ask: the lab's `[Slack channel]`, then [Robotics Stack Exchange](https:
 - [Lab robots](08-lab-robots.md): robot-specific networking
 - Official: [installation troubleshooting](https://docs.ros.org/en/lyrical/Get-Started/Installation/Installation-Troubleshooting.html), [logging](https://docs.ros.org/en/jazzy/Concepts/Intermediate/About-Logging.html)
 
-<sub>Last reviewed: Sept. 30, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/07-debugging.md)</sub>
+<sub>Last reviewed: Nov. 9, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/07-debugging.md)</sub>

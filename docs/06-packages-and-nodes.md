@@ -162,7 +162,7 @@ Motion planning for arms: collision-aware paths, inverse kinematics, grasp pipel
 - Package: `ros-<distro>-moveit`
 - Try it: `ros2 launch moveit_setup_assistant setup_assistant.launch.py` to generate a MoveIt config for your arm's URDF
 - Docs: [MoveIt 2 docs](https://moveit.picknik.ai/main/index.html) (Jazzy and Rolling) and [Humble docs](https://moveit.picknik.ai/humble/index.html)
-- Note: MoveIt's [binary install page](https://moveit.ai/install-moveit2/binary/) lists Humble, Jazzy and Rolling; binaries for Kilted and Lyrical also exist in the ROS apt repository
+- Note: MoveIt's [binary install page](https://moveit.ai/install-moveit2/binary/) lists Humble (Ubuntu 22.04), Jazzy and Kilted (Ubuntu 24.04), and Lyrical and Rolling (Ubuntu 26.04)
 
 ## Perception: cameras and lidars
 
@@ -199,7 +199,7 @@ Docs: [teleop_twist_keyboard](https://github.com/ros2/teleop_twist_keyboard), [j
 
 micro-ROS puts ROS 2 on microcontrollers (ESP32, STM32, Teensy and others). The microcontroller talks to a **micro-ROS agent** on a computer over serial, UDP or other transports, and the agent bridges it into the normal ROS 2 graph.
 
-- Packages: the setup tools and the agent are **not** released as apt packages; build them with [`micro_ros_setup`](https://github.com/micro-ROS/micro_ros_setup) (branches for Humble, Jazzy, Kilted and Rolling; none for Lyrical when we checked) or use the Docker image
+- Packages: the setup tools and the agent are **not** released as apt packages; build them with [`micro_ros_setup`](https://github.com/micro-ROS/micro_ros_setup) (branches for Humble, Jazzy, Kilted, Lyrical and Rolling) or use the Docker image (tags for Humble, Jazzy, Kilted and Rolling; none for Lyrical)
 - Try it: `docker run -it --rm --net=host microros/micro-ros-agent:jazzy udp4 --port 8888`
 - Docs: the project website moved to [micro.vulcanexus.org](https://micro.vulcanexus.org/) ([first application on Linux](https://micro.vulcanexus.org/docs/tutorials/core/first_application_linux/))
 
@@ -250,7 +250,7 @@ Both come with the `desktop` install. Beginner tutorials built on them: [ROS 2 C
 
 ## Availability gaps on Lyrical
 
-Lyrical is four months old. On Sept. 30, 2026 these packages had a Lyrical entry in rosdistro but **no Lyrical binary** in the main apt repository for Ubuntu 26.04 (amd64): `usb_cam`, `rplidar_ros`, the `velodyne` metapackage (its driver and message packages exist), `ouster_ros` and `plotjuggler_ros`. The micro-ROS setup tools and agent image had no Lyrical branch or tag, and Isaac Sim's docs did not list Lyrical. If your project needs any of these, use Jazzy or build the package from source in your workspace. Re-check before deciding: `apt-cache policy ros-lyrical-<package>`.
+Lyrical is four months old. On Sept. 30, 2026 these packages had a Lyrical entry in rosdistro but **no Lyrical binary** in the main apt repository for Ubuntu 26.04 (amd64): `usb_cam`, `rplidar_ros`, the `velodyne` metapackage (its driver and message packages exist), `ouster_ros` and `plotjuggler_ros`. The micro-ROS agent Docker image has no Lyrical tag (`micro_ros_setup` has a `lyrical` branch), and Isaac Sim's docs did not list Lyrical. If your project needs any of these, use Jazzy or build the package from source in your workspace. Re-check before deciding: `apt-cache policy ros-lyrical-<package>`.
 
 ## Related
 
@@ -260,4 +260,4 @@ Lyrical is four months old. On Sept. 30, 2026 these packages had a Lyrical entry
 - [External resources](09-resources.md)
 - Search every released package: [ROS Index](https://index.ros.org/)
 
-<sub>Last reviewed: Nov. 5, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/06-packages-and-nodes.md)</sub>
+<sub>Last reviewed: Nov. 9, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/06-packages-and-nodes.md)</sub>

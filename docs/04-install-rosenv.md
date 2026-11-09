@@ -2,7 +2,7 @@
 
 > **Read this when** you want ROS 2 on a Linux machine without installing it into the system, need two distributions side by side, or want a project whose ROS dependencies are pinned in a lockfile.
 
-[ROSEnv](https://github.com/MarcoDotIO/rosenv) (command: `rosenv`) is an open-source ROS 2 project and dependency manager written by a lab member. You declare a distribution and packages in `rosenv.toml`; ROSEnv resolves them into `rosenv.lock` and runs your workspace inside a persistent Docker container built from the official ROS image, with your source folder mounted from the host. This page covers what it needs, how to install it, the everyday commands and its current limits, from its README and docs as of Sept. 30, 2026 (version 0.2.0, MIT license). The one thing to remember: **ROSEnv manages ROS userspace in Docker on a Linux host; it does not reach your robot's USB devices, GPU or screen yet**, so it is for development and testing, not for driving hardware.
+[ROSEnv](https://github.com/MarcoDotIO/rosenv) (command: `rosenv`) is an open-source ROS 2 project and dependency manager written by a lab member. You declare a distribution and packages in `rosenv.toml`; ROSEnv resolves them into `rosenv.lock` and runs your workspace inside a persistent Docker container built from the official ROS image, with your source folder mounted from the host. This page covers what it needs, how to install it, the everyday commands and its current limits, from its README and docs as of Sept. 30, 2026 (version 0.2.0, MIT license). The one thing to remember: **ROSEnv manages ROS userspace in Docker on a Linux or macOS host; it has no GPU or screen access and reaches only the devices you declare**, so it is for development and testing, not for driving hardware.
 
 ## Contents
 
@@ -24,13 +24,14 @@
 
 | You want to | Use | Why |
 |---|---|---|
-| Drive a robot: USB serial, cameras, lidar, CAN, GPU | [Native install](03-install-native.md) | ROSEnv has no USB, GPU or GUI passthrough in this release |
+| Drive a robot: USB serial, cameras, lidar, CAN, GPU | [Native install](03-install-native.md) | ROSEnv maps only devices you declare and has no GPU or GUI passthrough in this release |
 | Run RViz, rqt or Gazebo with a window | Native install | Same reason |
 | Keep Humble and Jazzy projects on one Ubuntu 24.04 workstation | **ROSEnv** | Each project gets its own container userspace and distro |
 | Give a teammate or CI the exact same ROS package versions | **ROSEnv** | `rosenv.lock` pins the base image and every Debian package version |
 | Learn ROS 2 without touching the system | **ROSEnv** or plain Docker | Delete the environment and only your workspace (and cached images, until `rosenv cache clean`) remains |
 | Run an end-of-life distro (Foxy, Galactic, Iron) | Plain Docker (`ros:foxy`) | ROSEnv's catalog starts at Humble |
-| Work on macOS or Windows | Plain Docker, a VM or a lab machine | ROSEnv's runtime is Linux-only |
+| Work on macOS | **ROSEnv** with OrbStack or Docker Desktop | ROSEnv 0.2.0 (released Nov. 5, 2026) supports macOS hosts |
+| Work on Windows | Plain Docker, a VM or a lab machine | The ROSEnv CLI does not support Windows |
 
 ## How it works
 
@@ -53,7 +54,7 @@ Commands run as your own user ID inside the container, with ROS and your workspa
 
 From the [README](https://github.com/MarcoDotIO/rosenv#install):
 
-- [ ] **Linux**, with **Ubuntu 24.04** as the tested host.
+- [ ] **Linux**, with **Ubuntu 24.04** as the tested host, or **macOS** with OrbStack or Docker Desktop.
 - [ ] **Python 3.11 or later** (`python3 --version`).
 - [ ] **A running Docker Engine** that your user can reach without `sudo`. ROSEnv does not change Docker permissions; follow Docker's [Ubuntu install guide](https://docs.docker.com/engine/install/ubuntu/) and its post-installation steps. ROSEnv refuses to create environments for the root user.
 - [ ] `uv` or `pipx` to install the command.
@@ -72,7 +73,7 @@ rosenv --version
 rosenv doctor              # checks Linux and Docker access
 ```
 
-The Python distribution is called `rosenv-manager`; the command is `rosenv`. When the project publishes [release artifacts](https://github.com/MarcoDotIO/rosenv/releases), a wheel installs with `uv tool install ./rosenv_manager-<version>-py3-none-any.whl` (there were no releases yet on Sept. 30, 2026, and the changelog lists 0.2.0 as unreleased).
+The Python distribution is called `rosenv-manager`; the command is `rosenv`. When the project publishes [release artifacts](https://github.com/MarcoDotIO/rosenv/releases), a wheel installs with `uv tool install ./rosenv_manager-<version>-py3-none-any.whl` (the changelog dates 0.2.0 Nov. 5, 2026).
 
 ## Quick start
 
@@ -142,6 +143,7 @@ talker = ["ros2", "run", "demo_nodes_cpp", "talker"]
 | Resolve or refresh the lock | `rosenv lock`, `rosenv lock --upgrade` |
 | Check the lock matches the manifest (no Docker) | `rosenv lock --check` |
 | Make the container match the lock | `rosenv sync`, `rosenv sync --locked` (CI), `rosenv sync --frozen` |
+| Preview what a sync would change, without changing anything | `rosenv sync --dry-run` |
 | Run one command | `rosenv run -- ros2 topic list` |
 | Open a shell with ROS sourced | `rosenv shell` |
 | Build and test | `rosenv build`, `rosenv build -- --packages-select my_pkg`, `rosenv test` |
@@ -217,8 +219,8 @@ Middleware settings (for example `RMW_IMPLEMENTATION` or a Cyclone DDS config fi
 
 From ROSEnv's README and [architecture doc](https://github.com/MarcoDotIO/rosenv/blob/main/docs/architecture.md), as of version 0.2.0:
 
-- **No GUI, GPU or USB passthrough**, and no hardware control. RViz, Gazebo, cameras, serial devices and CUDA are out of scope for this release.
-- **Linux only.** macOS can run the offline manifest commands and `--help` (we saw `rosenv: This release supports a Linux Docker host` on a Mac); Windows is not supported by the CLI.
+- **No GUI or GPU passthrough.** RViz, Gazebo and CUDA are out of scope for this release. Devices are not passed through automatically: on Linux, ROSEnv maps only the devices you declare, and on macOS it relays declared serial devices (with their baud rate) into the container.
+- **Linux and macOS hosts.** macOS needs OrbStack or Docker Desktop; Windows is not supported by the CLI.
 - **Rootless Docker and other Docker-compatible engines** are not established by its test matrix.
 - **Not a security sandbox.** Containers share the host kernel and writable mounts; treat it as isolation for trusted development code.
 - **Distros:** Humble, Jazzy, Kilted, Lyrical and Rolling only; no Foxy, Galactic or Iron.
@@ -246,4 +248,4 @@ We ran `rosenv lock`, `rosenv sync --locked`, `rosenv build`, `rosenv test` and 
 - ROSEnv: [README](https://github.com/MarcoDotIO/rosenv), [user guide](https://github.com/MarcoDotIO/rosenv/blob/main/docs/guide.md), [features](https://github.com/MarcoDotIO/rosenv/blob/main/docs/features.md), [architecture](https://github.com/MarcoDotIO/rosenv/blob/main/docs/architecture.md), [issues](https://github.com/MarcoDotIO/rosenv/issues)
 - Lab: [Docker in the lab tech stack](https://github.com/ATR-Lab/getting-started-atr-lab/blob/master/tech-stack/docker.md)
 
-<sub>Last reviewed: Sept. 30, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/04-install-rosenv.md)</sub>
+<sub>Last reviewed: Nov. 9, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/04-install-rosenv.md)</sub>

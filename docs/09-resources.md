@@ -31,7 +31,7 @@ These are the sources the lab trusts for ROS 2, each checked on Sept. 30, 2026. 
 | Resource | Use it for |
 |---|---|
 | [REP index](https://reps.openrobotics.org/) | ROS Enhancement Proposals: the conventions the ecosystem follows |
-| [REP 2000](https://reps.openrobotics.org/rep-2000/) | Release schedule and target platforms per distribution (it had not added Lyrical when we checked) |
+| [REP 2000](https://reps.openrobotics.org/rep-2000/) | Release schedule and target platforms per distribution up to Kilted; from Lyrical on, each release's docs list its platforms (see [Lyrical supported platforms](https://docs.ros.org/en/lyrical/Releases/lyrical/supported-platforms.html)) |
 | [REP 103](https://reps.openrobotics.org/rep-0103/), [REP 105](https://reps.openrobotics.org/rep-0105/) | Units, axis directions and standard frame names (`map`, `odom`, `base_link`) |
 | [REP 2004](https://reps.openrobotics.org/rep-2004/) | Package quality levels |
 | [ROS 2 design](https://design.ros2.org/) | Why ROS 2 works the way it does, for example [clock and time](https://design.ros2.org/articles/clock_and_time.html) |
@@ -102,4 +102,4 @@ Public ATR-Lab repositories that use or document ROS 2:
 - [Lab robots](08-lab-robots.md)
 - Lab: [about the lab](https://github.com/ATR-Lab/about)
 
-<sub>Last reviewed: Nov. 5, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/09-resources.md)</sub>
+<sub>Last reviewed: Nov. 9, 2026 · Sources checked on that date · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/09-resources.md)</sub>
