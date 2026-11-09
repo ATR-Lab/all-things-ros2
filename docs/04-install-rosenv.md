@@ -2,7 +2,7 @@
 
 > **Read this when** you want ROS 2 on a Linux machine without installing it into the system, need two distributions side by side, or want a project whose ROS dependencies are pinned in a lockfile.
 
-[ROSEnv](https://github.com/MarcoDotIO/rosenv) (command: `rosenv`) is an open-source ROS 2 project and dependency manager written by a lab member. You declare a distribution and packages in `rosenv.toml`; ROSEnv resolves them into `rosenv.lock` and runs your workspace inside a persistent Docker container built from the official ROS image, with your source folder mounted from the host. This page covers what it needs, how to install it, the everyday commands and its current limits, from its README and docs as of Sept. 30, 2026 (version 0.2.0, MIT license). The one thing to remember: **ROSEnv manages ROS userspace in Docker on a Linux or macOS host; it has no GPU or screen access and reaches only the devices you declare**, so it is for development and testing, not for driving hardware.
+[ROSEnv](https://github.com/MarcoDotIO/rosenv) (command: `rosenv`) is an open-source ROS 2 project and dependency manager written by a lab member. You declare a distribution and packages in `rosenv.toml`; ROSEnv resolves them into `rosenv.lock` and runs your workspace inside a persistent Docker container built from the official ROS image, with your source folder mounted from the host. This page covers what it needs, how to install it, the everyday commands and its current limits, from its README and docs as of Nov. 9, 2026 (version 0.2.0, released Nov. 5, 2026, MIT license). The one thing to remember: **ROSEnv manages ROS userspace in Docker on a Linux or macOS host; it has no GPU or screen access and reaches only the devices you declare**, so it is for development and testing, not for driving hardware.
 
 ## Contents
 
@@ -144,6 +144,8 @@ talker = ["ros2", "run", "demo_nodes_cpp", "talker"]
 | Check the lock matches the manifest (no Docker) | `rosenv lock --check` |
 | Make the container match the lock | `rosenv sync`, `rosenv sync --locked` (CI), `rosenv sync --frozen` |
 | Preview what a sync would change, without changing anything | `rosenv sync --dry-run` |
+| Use a second manifest in the same folder | `rosenv --config rosenv.robot.toml sync --locked` (put `--config` before the subcommand) |
+| Set a variable for one command only | `rosenv run --set-env ROS_DOMAIN_ID=51 -- ros2 topic list` (repeatable; also works with `shell`, `build`, `test` and tasks) |
 | Run one command | `rosenv run -- ros2 topic list` |
 | Open a shell with ROS sourced | `rosenv shell` |
 | Build and test | `rosenv build`, `rosenv build -- --packages-select my_pkg`, `rosenv test` |
@@ -213,13 +215,13 @@ network = "host"
 domain-id = 7        # the robot's ROS_DOMAIN_ID: [lab domain ID assignments]
 ```
 
-Middleware settings (for example `RMW_IMPLEMENTATION` or a Cyclone DDS config file) remain your job; see the [cheatsheet](05-cheatsheet.md#environment-variables).
+To set middleware variables such as `RMW_IMPLEMENTATION` for every command, list them under `[environment.variables]` in `rosenv.toml`; changing them, the domain ID or tasks reuses the container without a rebuild. Install the matching middleware package first, and see the [cheatsheet](05-cheatsheet.md#environment-variables) for what each variable does.
 
 ## Limitations
 
 From ROSEnv's README and [architecture doc](https://github.com/MarcoDotIO/rosenv/blob/main/docs/architecture.md), as of version 0.2.0:
 
-- **No GUI or GPU passthrough.** RViz, Gazebo and CUDA are out of scope for this release. Devices are not passed through automatically: on Linux, ROSEnv maps only the devices you declare, and on macOS it relays declared serial devices (with their baud rate) into the container.
+- **No GUI or GPU passthrough.** RViz, Gazebo and CUDA are out of scope for this release. Devices are not passed through automatically: on Linux, ROSEnv maps only the devices you declare in `devices` under `[environment]` (for example `devices = ["/dev/serial/by-id/YOUR_DEVICE:/dev/ttyACM0:rw"]`), and on macOS it relays declared serial devices (with their baud rate) into the container.
 - **Linux and macOS hosts.** macOS needs OrbStack or Docker Desktop; Windows is not supported by the CLI.
 - **Rootless Docker and other Docker-compatible engines** are not established by its test matrix.
 - **Not a security sandbox.** Containers share the host kernel and writable mounts; treat it as isolation for trusted development code.
