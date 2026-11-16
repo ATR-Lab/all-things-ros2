@@ -84,7 +84,7 @@ A small arm with four joints plus a gripper (five Dynamixel XM430-W350-T servos,
 **How it talks to ROS 2: official ROBOTIS packages built on ros2_control.**
 
 - The [OpenManipulator-X quick start](https://emanual.robotis.com/docs/en/platform/openmanipulator_x/quick_start_guide/) has tabs for Jazzy ("ROS 2 Jazzy is supported on Ubuntu 24.04"; Docker recommended, or build from source), Humble (Ubuntu 22.04) and ROS 1 Noetic.
-- Source: [ROBOTIS-GIT/open_manipulator](https://github.com/ROBOTIS-GIT/open_manipulator) (Apache-2.0), with `jazzy` and `humble` branches. The `jazzy` branch is under active development (updated Sept. 28, 2026) and is the only distro its CI builds; the `humble` branch was last updated in July 2025.
+- Source: [ROBOTIS-GIT/open_manipulator](https://github.com/ROBOTIS-GIT/open_manipulator) (Apache-2.0), with `jazzy` and `humble` branches. The `jazzy` branch is under active development (updated Oct. 19, 2026) and is the only distro its CI builds; the `humble` branch was last updated in July 2025.
 - Binaries: `ros-jazzy-open-manipulator` (and its bringup, description, GUI, MoveIt config and teleop packages) at version 4.1.3, older than the 5.1.4 source; Humble packages are named `ros-humble-open-manipulator-x-*` at 3.0.4. The ROS package index also lists Kilted and Lyrical releases, built from the repository's `main` branch.
 - Lower layers: `ros-<distro>-dynamixel-sdk` ([DynamixelSDK](https://github.com/ROBOTIS-GIT/DynamixelSDK)) and `ros-<distro>-dynamixel-hardware-interface` ([dynamixel_hardware_interface](https://github.com/ROBOTIS-GIT/dynamixel_hardware_interface), a ros2_control plugin), both released for Humble and Jazzy.
 
@@ -162,4 +162,4 @@ A mecanum-wheel (omnidirectional) educational robot car with a lidar, depth came
 - [Debugging](07-debugging.md): networking to a robot
 - Lab: [getting-started-atr-lab hardware pages](https://github.com/ATR-Lab/getting-started-atr-lab), [dev-guidelines: ROS 2 packages](https://github.com/ATR-Lab/dev-guidelines/blob/master/docs/ros2-packages.md)
 
-<sub>Last reviewed: Nov. 9, 2026 · Sources checked Sept. 30, 2026 · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/08-lab-robots.md)</sub>
+<sub>Last reviewed: Nov. 16, 2026 · Sources checked Sept. 30, 2026 · [Suggest a change](https://github.com/ATR-Lab/all-things-ros2/edit/main/docs/08-lab-robots.md)</sub>
